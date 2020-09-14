@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		951D6660250F442D009E5BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D665F250F442D009E5BCB /* AppDelegate.swift */; };
 		951D6662250F442D009E5BCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6661250F442D009E5BCB /* SceneDelegate.swift */; };
-		951D6664250F442D009E5BCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6663250F442D009E5BCB /* ViewController.swift */; };
+		951D6664250F442D009E5BCB /* TopPostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6663250F442D009E5BCB /* TopPostsListViewController.swift */; };
 		951D6667250F442D009E5BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D6665250F442D009E5BCB /* Main.storyboard */; };
 		951D6669250F442F009E5BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951D6668250F442F009E5BCB /* Assets.xcassets */; };
 		951D666C250F442F009E5BCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D666A250F442F009E5BCB /* LaunchScreen.storyboard */; };
+		951D6681250F67F9009E5BCB /* RedditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6680250F67F9009E5BCB /* RedditService.swift */; };
+		951D6683250F6808009E5BCB /* RedditServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6682250F6808009E5BCB /* RedditServiceType.swift */; };
+		951D6686250F6A62009E5BCB /* TopPostsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6685250F6A62009E5BCB /* TopPostsListModel.swift */; };
+		951D6688250F6B69009E5BCB /* TopPostsListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6687250F6B69009E5BCB /* TopPostsListProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		951D665C250F442D009E5BCB /* Reddit Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		951D665F250F442D009E5BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		951D6661250F442D009E5BCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		951D6663250F442D009E5BCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		951D6663250F442D009E5BCB /* TopPostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsListViewController.swift; sourceTree = "<group>"; };
 		951D6666250F442D009E5BCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		951D6668250F442F009E5BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		951D666B250F442F009E5BCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		951D666D250F442F009E5BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		951D6680250F67F9009E5BCB /* RedditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditService.swift; sourceTree = "<group>"; };
+		951D6682250F6808009E5BCB /* RedditServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditServiceType.swift; sourceTree = "<group>"; };
+		951D6685250F6A62009E5BCB /* TopPostsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsListModel.swift; sourceTree = "<group>"; };
+		951D6687250F6B69009E5BCB /* TopPostsListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsListProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,75 @@
 		951D665E250F442D009E5BCB /* Reddit Client */ = {
 			isa = PBXGroup;
 			children = (
-				951D665F250F442D009E5BCB /* AppDelegate.swift */,
-				951D6661250F442D009E5BCB /* SceneDelegate.swift */,
-				951D6663250F442D009E5BCB /* ViewController.swift */,
-				951D6665250F442D009E5BCB /* Main.storyboard */,
-				951D6668250F442F009E5BCB /* Assets.xcassets */,
-				951D666A250F442F009E5BCB /* LaunchScreen.storyboard */,
-				951D666D250F442F009E5BCB /* Info.plist */,
+				951D6673250F6492009E5BCB /* AppLayer */,
+				951D6674250F64AB009E5BCB /* BusinessLayer */,
+				951D667E250F6595009E5BCB /* PresentationLayer */,
+				951D667D250F656D009E5BCB /* SupportingFiles */,
+				951D667C250F654E009E5BCB /* Resources */,
 			);
 			path = "Reddit Client";
+			sourceTree = "<group>";
+		};
+		951D6673250F6492009E5BCB /* AppLayer */ = {
+			isa = PBXGroup;
+			children = (
+				951D665F250F442D009E5BCB /* AppDelegate.swift */,
+				951D6661250F442D009E5BCB /* SceneDelegate.swift */,
+			);
+			path = AppLayer;
+			sourceTree = "<group>";
+		};
+		951D6674250F64AB009E5BCB /* BusinessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				951D6684250F680E009E5BCB /* RedditService */,
+			);
+			path = BusinessLayer;
+			sourceTree = "<group>";
+		};
+		951D667C250F654E009E5BCB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				951D6665250F442D009E5BCB /* Main.storyboard */,
+				951D666A250F442F009E5BCB /* LaunchScreen.storyboard */,
+				951D6668250F442F009E5BCB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		951D667D250F656D009E5BCB /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				951D666D250F442F009E5BCB /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		951D667E250F6595009E5BCB /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				951D667F250F65E1009E5BCB /* TopPostsListViewController */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		951D667F250F65E1009E5BCB /* TopPostsListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				951D6685250F6A62009E5BCB /* TopPostsListModel.swift */,
+				951D6663250F442D009E5BCB /* TopPostsListViewController.swift */,
+				951D6687250F6B69009E5BCB /* TopPostsListProtocols.swift */,
+			);
+			path = TopPostsListViewController;
+			sourceTree = "<group>";
+		};
+		951D6684250F680E009E5BCB /* RedditService */ = {
+			isa = PBXGroup;
+			children = (
+				951D6680250F67F9009E5BCB /* RedditService.swift */,
+				951D6682250F6808009E5BCB /* RedditServiceType.swift */,
+			);
+			path = RedditService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +206,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				951D6664250F442D009E5BCB /* ViewController.swift in Sources */,
+				951D6688250F6B69009E5BCB /* TopPostsListProtocols.swift in Sources */,
+				951D6664250F442D009E5BCB /* TopPostsListViewController.swift in Sources */,
 				951D6660250F442D009E5BCB /* AppDelegate.swift in Sources */,
+				951D6683250F6808009E5BCB /* RedditServiceType.swift in Sources */,
+				951D6686250F6A62009E5BCB /* TopPostsListModel.swift in Sources */,
 				951D6662250F442D009E5BCB /* SceneDelegate.swift in Sources */,
+				951D6681250F67F9009E5BCB /* RedditService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +357,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Reddit Client/Info.plist";
+				INFOPLIST_FILE = "Reddit Client/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,7 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.serg.reddit.Reddit-Client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,7 +375,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Reddit Client/Info.plist";
+				INFOPLIST_FILE = "Reddit Client/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.serg.reddit.Reddit-Client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
