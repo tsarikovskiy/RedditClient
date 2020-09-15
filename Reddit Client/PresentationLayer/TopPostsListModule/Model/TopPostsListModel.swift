@@ -24,6 +24,14 @@ final class TopPostsListModel {
 extension TopPostsListModel: TopPostsListModelInput {
     
     func obtainTopPosts() {
-        redditService.obtainTopPosts()
+        redditService.obtainTopPosts { result in
+            switch result {
+            case let .success(posts):
+                break
+                
+            case let .failure(error):
+                break
+            }
+        }
     }
 }

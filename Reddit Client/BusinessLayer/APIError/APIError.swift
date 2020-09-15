@@ -1,5 +1,5 @@
 //
-//  RedditServiceType.swift
+//  APIError.swift
 //  Reddit Client
 //
 //  Created by Anna on 14.09.2020.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol RedditServiceType {
-    func obtainTopPosts(completion: @escaping (Result<[Post], APIError>) -> Void)
+enum APIError: Error {
+    case emptyResponse
+    case invalidResponse
 }
