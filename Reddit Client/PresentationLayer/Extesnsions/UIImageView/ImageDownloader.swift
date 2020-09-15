@@ -12,7 +12,7 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 
 extension UIImageView {
     
-    func loadThumbnail(url: URL) {
+    func load(url: URL, completion: ((Bool) -> Void)? = nil) {
         image = nil
         
         if let imageFromCache = imageCache.object(forKey: url as AnyObject) {
@@ -27,6 +27,7 @@ extension UIImageView {
                 let image = UIImage(data: data) else {
                     DispatchQueue.main.async {
                         self.image = UIImage(named: "placeholder-reddit")
+                        completion?(false)
                     }
                     return
             }
@@ -34,6 +35,7 @@ extension UIImageView {
             imageCache.setObject(image, forKey: url as AnyObject)
             DispatchQueue.main.async {
                 self.image = image
+                completion?(true)
             }
             
         }.resume()

@@ -10,9 +10,10 @@ import UIKit
 
 struct TopPostAssembly {
 
-    func makeController() -> UIViewController {
+    func makeController(using url: URL) -> UIViewController {
         let storyboard = UIStoryboard(name: "TopPostViewController", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! TopPostViewController
+        vc.imageUrl = url
         return vc
     }
 }

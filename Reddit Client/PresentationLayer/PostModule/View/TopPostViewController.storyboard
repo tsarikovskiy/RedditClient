@@ -14,9 +14,31 @@
                     <view key="view" contentMode="scaleToFill" id="TVj-Hc-qte">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jfH-Cc-CO0">
+                                <rect key="frame" x="40" y="281" width="334" height="334"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jfH-Cc-CO0" secondAttribute="height" multiplier="1:1" id="dR7-UA-IPi"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-Y5-5ry">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jfH-Cc-CO0" firstAttribute="leading" secondItem="n6m-jy-Wpk" secondAttribute="leading" constant="40" id="5Nc-qv-xzP"/>
+                            <constraint firstItem="n6m-jy-Wpk" firstAttribute="trailing" secondItem="jfH-Cc-CO0" secondAttribute="trailing" constant="40" id="Pu4-uD-phu"/>
+                            <constraint firstItem="jfH-Cc-CO0" firstAttribute="centerX" secondItem="TVj-Hc-qte" secondAttribute="centerX" id="kju-aw-FP1"/>
+                            <constraint firstItem="jfH-Cc-CO0" firstAttribute="centerY" secondItem="TVj-Hc-qte" secondAttribute="centerY" id="sYM-Y3-qB6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n6m-jy-Wpk"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="EgW-Y5-5ry" id="0l2-7M-s7f"/>
+                        <outlet property="imageView" destination="jfH-Cc-CO0" id="Wyh-yz-x3F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhk-ht-BdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

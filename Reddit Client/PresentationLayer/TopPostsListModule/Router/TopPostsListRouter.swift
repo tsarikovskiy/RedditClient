@@ -16,8 +16,8 @@ final class TopPostsListRouter {
 
 // MARK: - TopPostsListRouterInput
 extension TopPostsListRouter: TopPostsListRouterInput {
-    func openTopPost() {
-        let topPostController = TopPostAssembly().makeController()
+    func openTopPost(using url: URL) {
+        let topPostController = TopPostAssembly().makeController(using: url)
         controller?.navigationController?.pushViewController(topPostController, animated: true)
     }
 }

@@ -13,11 +13,12 @@ class TopPostsListViewController: UIViewController {
     // MARK: - Constants
     enum C {
         static let title = "Top Posts"
+        static let cellReuseIdentifier = "TopCell"
     }
     
     // MARK: - Outlets
-    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
     var model: TopPostsListModelInput?
@@ -30,9 +31,28 @@ class TopPostsListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         title = C.title
+        
+        configureIndicatorView()
+        configureTableView()
+        obtainPosts()
+    }
+    
+    private func configureIndicatorView() {
         activityIndicatorView.center = view.center
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.startAnimating()
+    }
+    
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: "TopPostTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: C.cellReuseIdentifier)
+    }
+    
+    private func obtainPosts() {
         model?.obtainTopPosts { [weak self] posts, isSuccess in
             self?.activityIndicatorView.stopAnimating()
             if isSuccess {
@@ -40,15 +60,7 @@ class TopPostsListViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UINib(nibName: "TopPostTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "TopCell")
     }
-
 
 }
  
@@ -60,10 +72,9 @@ extension TopPostsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell",
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.cellReuseIdentifier,
                                                  for: indexPath) as! TopPostTableViewCell
         let post = posts[indexPath.row]
-        
         let hoursCreatedAgo = Int((Date().timeIntervalSince1970 - post.created) / 60 / 60)
         cell.configure(using: .init(title: post.title,
                                     author: "by \(post.author)",
@@ -77,7 +88,6 @@ extension TopPostsListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TopPostsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.openTopPost()
-        print("*** click image URL = \(posts[indexPath.row].thumbnail)")
+        router?.openTopPost(using: posts[indexPath.row].url)
     }
 }

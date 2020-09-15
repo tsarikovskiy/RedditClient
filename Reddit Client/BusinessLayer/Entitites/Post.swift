@@ -15,6 +15,9 @@ struct Post: Identifiable {
     let thumbnail: URL
     let created: TimeInterval
     let numberComments: Int
+    
+    // Original image url
+    let url: URL
 }
 
 // MARK: - Decodable
@@ -27,6 +30,7 @@ extension Post: Decodable {
         case thumbnail
         case created
         case numComments = "num_comments"
+        case url
     }
     
     init(from decoder: Decoder) throws {
@@ -39,5 +43,6 @@ extension Post: Decodable {
         thumbnail = try dataContainer.decode(URL.self, forKey: .thumbnail)
         created = try dataContainer.decode(TimeInterval.self, forKey: .created)
         numberComments = try dataContainer.decode(Int.self, forKey: .numComments)
+        url = try dataContainer.decode(URL.self, forKey: .url)
     }
 }

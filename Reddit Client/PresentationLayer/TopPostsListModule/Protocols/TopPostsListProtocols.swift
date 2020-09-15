@@ -13,5 +13,5 @@ protocol TopPostsListModelInput: class {
 }
 
 protocol TopPostsListRouterInput: class {
-    func openTopPost()
+    func openTopPost(using url: URL)
 }
