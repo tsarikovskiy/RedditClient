@@ -14,11 +14,14 @@ class TopPostsListViewController: UIViewController {
     enum C {
         static let title = "Top Posts"
         static let cellReuseIdentifier = "TopCell"
+        static let pullToRefreshTitle = "Pull to refresh"
     }
     
     // MARK: - Outlets
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
+
     
     // MARK: - Properties
     var model: TopPostsListModelInput?
@@ -34,6 +37,7 @@ class TopPostsListViewController: UIViewController {
         
         configureIndicatorView()
         configureTableView()
+        configurePullToRefresh()
         obtainPosts()
     }
     
@@ -54,14 +58,33 @@ class TopPostsListViewController: UIViewController {
     
     private func obtainPosts() {
         model?.obtainTopPosts { [weak self] posts, isSuccess in
-            self?.activityIndicatorView.stopAnimating()
+            guard let self = self else {
+                return
+            }
+            
+            self.activityIndicatorView.stopAnimating()
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
             if isSuccess {
-                self?.posts = posts
-                self?.tableView.reloadData()
+                self.posts = posts
+                self.tableView.reloadData()
             }
         }
     }
-
+    
+    private func configurePullToRefresh() {
+        refreshControl.attributedTitle = NSAttributedString(string: C.pullToRefreshTitle)
+        refreshControl.addTarget(self, action: #selector(performPullToRefreshAction),
+                                 for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func performPullToRefreshAction() {
+        activityIndicatorView.startAnimating()
+        obtainPosts()
+    }
 }
  
 // MARK: - UICollectionViewDataSource
