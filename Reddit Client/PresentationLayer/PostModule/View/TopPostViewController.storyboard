@@ -25,11 +25,20 @@
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6W-9j-Tku">
+                                <rect key="frame" x="184" y="639" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveImageTapped" destination="435-4y-7fm" eventType="touchUpInside" id="Ka4-21-iXt"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jfH-Cc-CO0" firstAttribute="leading" secondItem="n6m-jy-Wpk" secondAttribute="leading" constant="40" id="5Nc-qv-xzP"/>
+                            <constraint firstItem="V6W-9j-Tku" firstAttribute="top" secondItem="jfH-Cc-CO0" secondAttribute="bottom" constant="24" id="AHf-qm-eWA"/>
                             <constraint firstItem="n6m-jy-Wpk" firstAttribute="trailing" secondItem="jfH-Cc-CO0" secondAttribute="trailing" constant="40" id="Pu4-uD-phu"/>
+                            <constraint firstItem="V6W-9j-Tku" firstAttribute="centerX" secondItem="TVj-Hc-qte" secondAttribute="centerX" id="b7Z-Lv-5Mm"/>
                             <constraint firstItem="jfH-Cc-CO0" firstAttribute="centerX" secondItem="TVj-Hc-qte" secondAttribute="centerX" id="kju-aw-FP1"/>
                             <constraint firstItem="jfH-Cc-CO0" firstAttribute="centerY" secondItem="TVj-Hc-qte" secondAttribute="centerY" id="sYM-Y3-qB6"/>
                         </constraints>
@@ -38,6 +47,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="EgW-Y5-5ry" id="0l2-7M-s7f"/>
                         <outlet property="imageView" destination="jfH-Cc-CO0" id="Wyh-yz-x3F"/>
+                        <outlet property="saveButton" destination="V6W-9j-Tku" id="sbA-L2-yNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhk-ht-BdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

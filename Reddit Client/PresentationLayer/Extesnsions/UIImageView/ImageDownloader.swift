@@ -17,6 +17,7 @@ extension UIImageView {
         
         if let imageFromCache = imageCache.object(forKey: url as AnyObject) {
             image = imageFromCache as? UIImage
+            completion?(true)
             return
         }
         

@@ -13,7 +13,12 @@ struct TopPostAssembly {
     func makeController(using url: URL) -> UIViewController {
         let storyboard = UIStoryboard(name: "TopPostViewController", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! TopPostViewController
+        let router = TopPostRouter()
+        router.controller = vc
+        
+        vc.router = router
         vc.imageUrl = url
+        
         return vc
     }
 }
