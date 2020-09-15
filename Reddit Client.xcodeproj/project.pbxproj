@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950076DE2510971300500FCB /* TopPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950076DC2510971300500FCB /* TopPostTableViewCell.swift */; };
+		950076E32510B31000500FCB /* TopPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 950076E12510B31000500FCB /* TopPostTableViewCell.xib */; };
 		951D6660250F442D009E5BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D665F250F442D009E5BCB /* AppDelegate.swift */; };
 		951D6662250F442D009E5BCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6661250F442D009E5BCB /* SceneDelegate.swift */; };
 		951D6664250F442D009E5BCB /* TopPostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D6663250F442D009E5BCB /* TopPostsListViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		950076DC2510971300500FCB /* TopPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostTableViewCell.swift; sourceTree = "<group>"; };
+		950076E12510B31000500FCB /* TopPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPostTableViewCell.xib; sourceTree = "<group>"; };
 		951D665C250F442D009E5BCB /* Reddit Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		951D665F250F442D009E5BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		951D6661250F442D009E5BCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		950076DB251096DB00500FCB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				950076DC2510971300500FCB /* TopPostTableViewCell.swift */,
+				950076E12510B31000500FCB /* TopPostTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		951D6653250F442D009E5BCB = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +148,7 @@
 			children = (
 				951D6693250F89E2009E5BCB /* APIError */,
 				951D6692250F89DB009E5BCB /* Entitites */,
-				951D6684250F680E009E5BCB /* RedditService */,
+				9534B64A2510CF9A008086B3 /* Services */,
 			);
 			path = BusinessLayer;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 		951D667F250F65E1009E5BCB /* TopPostsListModule */ = {
 			isa = PBXGroup;
 			children = (
+				950076DB251096DB00500FCB /* Cells */,
 				950076DA250FF6DF00500FCB /* Protocols */,
 				950076D9250FF6C400500FCB /* Assembly */,
 				950076D8250FF6B200500FCB /* Model */,
@@ -201,6 +215,14 @@
 				951D669E250F8ACE009E5BCB /* APIError.swift */,
 			);
 			path = APIError;
+			sourceTree = "<group>";
+		};
+		9534B64A2510CF9A008086B3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				951D6684250F680E009E5BCB /* RedditService */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950076E32510B31000500FCB /* TopPostTableViewCell.xib in Resources */,
 				951D666C250F442F009E5BCB /* LaunchScreen.storyboard in Resources */,
 				951D6669250F442F009E5BCB /* Assets.xcassets in Resources */,
 				951D66A3250F8BD4009E5BCB /* TopPostsListViewController.storyboard in Resources */,
@@ -280,6 +303,7 @@
 				951D669F250F8ACE009E5BCB /* APIError.swift in Sources */,
 				951D6660250F442D009E5BCB /* AppDelegate.swift in Sources */,
 				951D6683250F6808009E5BCB /* RedditServiceType.swift in Sources */,
+				950076DE2510971300500FCB /* TopPostTableViewCell.swift in Sources */,
 				951D6686250F6A62009E5BCB /* TopPostsListModel.swift in Sources */,
 				951D669D250F8AC7009E5BCB /* Post.swift in Sources */,
 				951D6662250F442D009E5BCB /* SceneDelegate.swift in Sources */,

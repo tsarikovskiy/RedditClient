@@ -9,11 +9,10 @@
 import Foundation
 
 struct PostsList {
-    let posts = [Post]()
+    var posts = [Post]()
 }
 
 // MARK: - Decodable
-
 extension PostsList: Decodable {
     enum CodingKeys: String, CodingKey {
         case posts = "children"

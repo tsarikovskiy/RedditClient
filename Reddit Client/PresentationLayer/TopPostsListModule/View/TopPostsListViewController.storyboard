@@ -14,13 +14,33 @@
                     <view key="view" contentMode="scaleToFill" id="ELw-ru-3Vv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnN-k4-qbf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="FQ0-0K-eqt">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bnN-k4-qbf" firstAttribute="leading" secondItem="9zY-z4-tlN" secondAttribute="leading" id="M4N-yU-CGO"/>
+                            <constraint firstItem="bnN-k4-qbf" firstAttribute="top" secondItem="9zY-z4-tlN" secondAttribute="top" id="Ry2-4L-TWm"/>
+                            <constraint firstItem="9zY-z4-tlN" firstAttribute="trailing" secondItem="bnN-k4-qbf" secondAttribute="trailing" id="oWl-8j-pK0"/>
+                            <constraint firstItem="9zY-z4-tlN" firstAttribute="bottom" secondItem="bnN-k4-qbf" secondAttribute="bottom" id="qCd-AC-kdb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9zY-z4-tlN"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="FQ0-0K-eqt" id="7T6-ma-hag"/>
+                        <outlet property="tableView" destination="bnN-k4-qbf" id="z7a-Bn-3Ry"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izv-K4-Pug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="113"/>
+            <point key="canvasLocation" x="285.50724637681162" y="112.5"/>
         </scene>
     </scenes>
 </document>

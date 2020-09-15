@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TopPostsListModelInput: class {
-    func obtainTopPosts()
+    func obtainTopPosts(completion: @escaping ([Post], Bool) -> Void)
 }

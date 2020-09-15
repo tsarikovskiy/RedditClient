@@ -14,11 +14,10 @@ struct Post: Identifiable {
     let author: String
     let thumbnail: URL
     let created: TimeInterval
-    let numberCOmments: Int
+    let numberComments: Int
 }
 
 // MARK: - Decodable
-
 extension Post: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
@@ -39,6 +38,6 @@ extension Post: Decodable {
         author = try dataContainer.decode(String.self, forKey: .author)
         thumbnail = try dataContainer.decode(URL.self, forKey: .thumbnail)
         created = try dataContainer.decode(TimeInterval.self, forKey: .created)
-        numberCOmments = try dataContainer.decode(Int.self, forKey: .numComments)
+        numberComments = try dataContainer.decode(Int.self, forKey: .numComments)
     }
 }
