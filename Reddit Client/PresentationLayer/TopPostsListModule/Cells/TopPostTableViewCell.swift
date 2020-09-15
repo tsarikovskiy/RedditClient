@@ -37,6 +37,7 @@ final class TopPostTableViewCell: UITableViewCell {
         titleLabel.text = viewModel.title
         authorLabel.text = viewModel.author
         timeLabel.text = viewModel.time
+        thumbnailImageView.loadThumbnail(url: viewModel.imageURL)
         commentsCountLabel.text = viewModel.commentsCount
     }
 }

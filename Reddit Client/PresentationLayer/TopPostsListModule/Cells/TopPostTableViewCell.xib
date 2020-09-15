@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="2" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q14-Ut-v4z">
-                        <rect key="frame" x="16" y="41.5" width="33" height="120.5"/>
+                        <rect key="frame" x="16" y="41.5" width="33" height="112.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg2-zb-HK3">
-                        <rect key="frame" x="16" y="167" width="33" height="16"/>
+                        <rect key="frame" x="16" y="159" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" placeholderIntrinsicWidth="378" placeholderIntrinsicHeight="224" image="placeholder-reddit" translatesAutoresizingMaskIntoConstraints="NO" id="Saf-vq-5aq">
-                        <rect key="frame" x="16" y="191" width="140" height="140"/>
+                        <rect key="frame" x="16" y="187" width="140" height="140"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="140" id="a9Z-Cs-CC0"/>
                             <constraint firstAttribute="width" constant="140" id="zp5-NB-0pn"/>
@@ -66,14 +66,14 @@
                 <constraints>
                     <constraint firstItem="q14-Ut-v4z" firstAttribute="top" secondItem="qUI-MA-t8z" secondAttribute="bottom" constant="5" id="4r7-zf-xHU"/>
                     <constraint firstItem="eg2-zb-HK3" firstAttribute="leading" secondItem="q14-Ut-v4z" secondAttribute="leading" id="5XE-V8-Qfc"/>
-                    <constraint firstItem="Saf-vq-5aq" firstAttribute="top" secondItem="eg2-zb-HK3" secondAttribute="bottom" constant="8" id="Gmr-pR-AOd"/>
+                    <constraint firstItem="Saf-vq-5aq" firstAttribute="top" secondItem="eg2-zb-HK3" secondAttribute="bottom" constant="12" id="Gmr-pR-AOd"/>
                     <constraint firstItem="Saf-vq-5aq" firstAttribute="leading" secondItem="eg2-zb-HK3" secondAttribute="leading" id="JMs-TB-s6w"/>
                     <constraint firstItem="6Vn-hE-UZS" firstAttribute="top" secondItem="dEK-Y8-IYU" secondAttribute="bottom" constant="10" id="KF7-rS-fG0"/>
                     <constraint firstItem="RCo-Pp-G3P" firstAttribute="leading" secondItem="Saf-vq-5aq" secondAttribute="leading" id="N1R-6K-pHa"/>
                     <constraint firstItem="qUI-MA-t8z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Qyw-us-PsJ"/>
                     <constraint firstItem="6Vn-hE-UZS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TFg-KV-cYJ"/>
                     <constraint firstItem="eg2-zb-HK3" firstAttribute="top" secondItem="q14-Ut-v4z" secondAttribute="bottom" constant="5" id="Yku-Ok-X7T"/>
-                    <constraint firstItem="RCo-Pp-G3P" firstAttribute="top" secondItem="Saf-vq-5aq" secondAttribute="bottom" constant="8" id="aFw-gC-hgd"/>
+                    <constraint firstItem="RCo-Pp-G3P" firstAttribute="top" secondItem="Saf-vq-5aq" secondAttribute="bottom" constant="12" id="aFw-gC-hgd"/>
                     <constraint firstItem="qUI-MA-t8z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="b0K-2P-BM0"/>
                     <constraint firstItem="dEK-Y8-IYU" firstAttribute="centerY" secondItem="RCo-Pp-G3P" secondAttribute="centerY" id="ci1-sh-wok"/>
                     <constraint firstItem="q14-Ut-v4z" firstAttribute="leading" secondItem="qUI-MA-t8z" secondAttribute="leading" id="ehD-ik-NzB"/>

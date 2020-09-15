@@ -23,6 +23,7 @@
 		951D669F250F8ACE009E5BCB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D669E250F8ACE009E5BCB /* APIError.swift */; };
 		951D66A1250F8B2A009E5BCB /* TopPostsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D66A0250F8B2A009E5BCB /* TopPostsListAssembly.swift */; };
 		951D66A3250F8BD4009E5BCB /* TopPostsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D66A2250F8BD4009E5BCB /* TopPostsListViewController.storyboard */; };
+		9534B64F2510D180008086B3 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534B64E2510D180008086B3 /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		951D669E250F8ACE009E5BCB /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		951D66A0250F8B2A009E5BCB /* TopPostsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsListAssembly.swift; sourceTree = "<group>"; };
 		951D66A2250F8BD4009E5BCB /* TopPostsListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopPostsListViewController.storyboard; sourceTree = "<group>"; };
+		9534B64E2510D180008086B3 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		951D667E250F6595009E5BCB /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9534B64C2510D146008086B3 /* Extesnsions */,
 				951D667F250F65E1009E5BCB /* TopPostsListModule */,
 			);
 			path = PresentationLayer;
@@ -223,6 +226,22 @@
 				951D6684250F680E009E5BCB /* RedditService */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9534B64C2510D146008086B3 /* Extesnsions */ = {
+			isa = PBXGroup;
+			children = (
+				9534B64D2510D14E008086B3 /* UIImageView */,
+			);
+			path = Extesnsions;
+			sourceTree = "<group>";
+		};
+		9534B64D2510D14E008086B3 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				9534B64E2510D180008086B3 /* ImageDownloader.swift */,
+			);
+			path = UIImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +318,7 @@
 			files = (
 				951D6688250F6B69009E5BCB /* TopPostsListProtocols.swift in Sources */,
 				951D6664250F442D009E5BCB /* TopPostsListViewController.swift in Sources */,
+				9534B64F2510D180008086B3 /* ImageDownloader.swift in Sources */,
 				951D669C250F8AC7009E5BCB /* PostsList.swift in Sources */,
 				951D669F250F8ACE009E5BCB /* APIError.swift in Sources */,
 				951D6660250F442D009E5BCB /* AppDelegate.swift in Sources */,
