@@ -87,7 +87,7 @@ class TopPostsListViewController: UIViewController {
     }
 }
  
-// MARK: - UICollectionViewDataSource
+// MARK: - UITableViewDataSource
 extension TopPostsListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
