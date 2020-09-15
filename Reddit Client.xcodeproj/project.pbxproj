@@ -24,6 +24,10 @@
 		951D66A1250F8B2A009E5BCB /* TopPostsListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D66A0250F8B2A009E5BCB /* TopPostsListAssembly.swift */; };
 		951D66A3250F8BD4009E5BCB /* TopPostsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951D66A2250F8BD4009E5BCB /* TopPostsListViewController.storyboard */; };
 		9534B64F2510D180008086B3 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534B64E2510D180008086B3 /* ImageDownloader.swift */; };
+		9534B6522510D408008086B3 /* TopPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534B6512510D408008086B3 /* TopPostViewController.swift */; };
+		9534B6542510D416008086B3 /* TopPostViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9534B6532510D416008086B3 /* TopPostViewController.storyboard */; };
+		9534B6572510D4B5008086B3 /* TopPostsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534B6562510D4B5008086B3 /* TopPostsListRouter.swift */; };
+		9534B6592510D568008086B3 /* TopPostAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534B6582510D568008086B3 /* TopPostAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		951D66A0250F8B2A009E5BCB /* TopPostsListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsListAssembly.swift; sourceTree = "<group>"; };
 		951D66A2250F8BD4009E5BCB /* TopPostsListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopPostsListViewController.storyboard; sourceTree = "<group>"; };
 		9534B64E2510D180008086B3 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		9534B6512510D408008086B3 /* TopPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostViewController.swift; sourceTree = "<group>"; };
+		9534B6532510D416008086B3 /* TopPostViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopPostViewController.storyboard; sourceTree = "<group>"; };
+		9534B6562510D4B5008086B3 /* TopPostsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostsListRouter.swift; sourceTree = "<group>"; };
+		9534B6582510D568008086B3 /* TopPostAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPostAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,7 @@
 			children = (
 				9534B64C2510D146008086B3 /* Extesnsions */,
 				951D667F250F65E1009E5BCB /* TopPostsListModule */,
+				9534B6502510D3DA008086B3 /* PostModule */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -187,6 +196,7 @@
 				950076DB251096DB00500FCB /* Cells */,
 				950076DA250FF6DF00500FCB /* Protocols */,
 				950076D9250FF6C400500FCB /* Assembly */,
+				9534B6552510D485008086B3 /* Router */,
 				950076D8250FF6B200500FCB /* Model */,
 				950076D6250FF6A100500FCB /* View */,
 				950076D7250FF6B000500FCB /* Controller */,
@@ -242,6 +252,56 @@
 				9534B64E2510D180008086B3 /* ImageDownloader.swift */,
 			);
 			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		9534B6502510D3DA008086B3 /* PostModule */ = {
+			isa = PBXGroup;
+			children = (
+				9534B65A2510D625008086B3 /* Assembly */,
+				9534B65D2510D63E008086B3 /* Model */,
+				9534B65C2510D635008086B3 /* View */,
+				9534B65B2510D62E008086B3 /* Controller */,
+			);
+			path = PostModule;
+			sourceTree = "<group>";
+		};
+		9534B6552510D485008086B3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9534B6562510D4B5008086B3 /* TopPostsListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9534B65A2510D625008086B3 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				9534B6582510D568008086B3 /* TopPostAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		9534B65B2510D62E008086B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9534B6512510D408008086B3 /* TopPostViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9534B65C2510D635008086B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9534B6532510D416008086B3 /* TopPostViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9534B65D2510D63E008086B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				950076E32510B31000500FCB /* TopPostTableViewCell.xib in Resources */,
+				9534B6542510D416008086B3 /* TopPostViewController.storyboard in Resources */,
 				951D666C250F442F009E5BCB /* LaunchScreen.storyboard in Resources */,
 				951D6669250F442F009E5BCB /* Assets.xcassets in Resources */,
 				951D66A3250F8BD4009E5BCB /* TopPostsListViewController.storyboard in Resources */,
@@ -322,8 +383,11 @@
 				951D669C250F8AC7009E5BCB /* PostsList.swift in Sources */,
 				951D669F250F8ACE009E5BCB /* APIError.swift in Sources */,
 				951D6660250F442D009E5BCB /* AppDelegate.swift in Sources */,
+				9534B6522510D408008086B3 /* TopPostViewController.swift in Sources */,
 				951D6683250F6808009E5BCB /* RedditServiceType.swift in Sources */,
 				950076DE2510971300500FCB /* TopPostTableViewCell.swift in Sources */,
+				9534B6592510D568008086B3 /* TopPostAssembly.swift in Sources */,
+				9534B6572510D4B5008086B3 /* TopPostsListRouter.swift in Sources */,
 				951D6686250F6A62009E5BCB /* TopPostsListModel.swift in Sources */,
 				951D669D250F8AC7009E5BCB /* Post.swift in Sources */,
 				951D6662250F442D009E5BCB /* SceneDelegate.swift in Sources */,

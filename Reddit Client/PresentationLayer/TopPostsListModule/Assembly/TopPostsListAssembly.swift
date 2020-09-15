@@ -10,12 +10,16 @@ import UIKit
 
 struct TopPostsListAssembly {
     
-    func makeController() -> UIViewController? {
+    func makeController() -> UIViewController {
         let storyboard = UIStoryboard(name: "TopPostsListViewController", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController() as? TopPostsListViewController
+        let vc = storyboard.instantiateInitialViewController() as! TopPostsListViewController
+        
+        let router = TopPostsListRouter()
+        router.controller = vc
         
         let redditService = RedditService()
-        vc?.model = TopPostsListModel(redditService: redditService)
+        vc.model = TopPostsListModel(redditService: redditService)
+        vc.router = router
         
         return vc
     }

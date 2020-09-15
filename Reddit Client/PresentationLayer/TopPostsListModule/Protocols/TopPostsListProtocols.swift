@@ -11,3 +11,7 @@ import Foundation
 protocol TopPostsListModelInput: class {
     func obtainTopPosts(completion: @escaping ([Post], Bool) -> Void)
 }
+
+protocol TopPostsListRouterInput: class {
+    func openTopPost()
+}

@@ -21,6 +21,7 @@ class TopPostsListViewController: UIViewController {
     
     // MARK: - Properties
     var model: TopPostsListModelInput?
+    var router: TopPostsListRouterInput?
     private var posts: [Post] = []
 
     // MARK: - Lifecycle
@@ -76,6 +77,7 @@ extension TopPostsListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TopPostsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.openTopPost()
         print("*** click image URL = \(posts[indexPath.row].thumbnail)")
     }
 }
