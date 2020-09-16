@@ -81,10 +81,12 @@ final class TopPostViewController: UIViewController {
             return
         }
         
-        UIImageWriteToSavedPhotosAlbum(imageToSave,
-                                       self,
-                                       #selector(imageSavingCompletion),
-                                       nil)
+        DispatchQueue.global(qos: .userInitiated).async {
+            UIImageWriteToSavedPhotosAlbum(imageToSave,
+                                           self,
+                                           #selector(self.imageSavingCompletion),
+                                           nil)
+        }
     }
     
     @objc private func imageSavingCompletion(_ image: UIImage,
