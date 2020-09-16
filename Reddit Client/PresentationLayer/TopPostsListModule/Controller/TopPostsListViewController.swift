@@ -38,7 +38,7 @@ class TopPostsListViewController: UIViewController {
         configureIndicatorView()
         configureTableView()
         configurePullToRefresh()
-        obtainPosts()
+        initialObtainingPosts()
     }
     
     private func configureIndicatorView() {
@@ -56,7 +56,15 @@ class TopPostsListViewController: UIViewController {
                            forCellReuseIdentifier: C.cellReuseIdentifier)
     }
     
-    private func obtainPosts() {
+    private func initialObtainingPosts() {
+        model?.loadArchivedPosts { [weak self] loadedPosts in
+            self?.posts = loadedPosts
+            self?.tableView.reloadData()
+            self?.obtainFreshPosts()
+        }
+    }
+    
+    private func obtainFreshPosts() {
         model?.obtainTopPosts(isInitial: true) { [weak self] posts, isSuccess in
             guard let self = self else {
                 return
@@ -70,6 +78,7 @@ class TopPostsListViewController: UIViewController {
             if isSuccess {
                 self.posts = posts
                 self.tableView.reloadData()
+                self.model?.savePosts(posts)
             }
         }
     }
@@ -83,7 +92,7 @@ class TopPostsListViewController: UIViewController {
     
     @objc func performPullToRefreshAction() {
         activityIndicatorView.startAnimating()
-        obtainPosts()
+        obtainFreshPosts()
     }
     
     private func obtainNextPosts() {
@@ -108,6 +117,7 @@ class TopPostsListViewController: UIViewController {
                 
                 self.posts.append(contentsOf: posts)
                 self.tableView.insertRows(at: paths, with: .automatic)
+                self.model?.savePosts(self.posts)
             }
         }
     }
@@ -141,7 +151,7 @@ extension TopPostsListViewController: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard !isLoadingNextPosts && posts.count > 1 else {
+        guard !isLoadingNextPosts && posts.count > 0 else {
             return
         }
         

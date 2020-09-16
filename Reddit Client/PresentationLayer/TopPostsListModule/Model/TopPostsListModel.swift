@@ -12,10 +12,12 @@ final class TopPostsListModel {
     
     // MARK: - Properties
     private let redditService: RedditServiceType
+    private let postsStorage: PostsStorageType
     
     // MARK: - Lifecycle
-    init(redditService: RedditServiceType) {
+    init(redditService: RedditServiceType, postsStorage: PostsStorageType) {
         self.redditService = redditService
+        self.postsStorage = postsStorage
     }
     
 }
@@ -36,4 +38,24 @@ extension TopPostsListModel: TopPostsListModelInput {
             }
         }
     }
+    
+    func savePosts(_ posts: [Post]) {
+        
+        // Save on the background
+        DispatchQueue.global(qos: .background).async {
+            try? self.postsStorage.save(posts: posts)
+        }
+    }
+    
+    func loadArchivedPosts(completion: @escaping ([Post]) -> Void) {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let posts = try? self.postsStorage.load()
+            
+            DispatchQueue.main.async {
+                completion(posts ?? [])
+            }
+        }
+    }
+    
 }

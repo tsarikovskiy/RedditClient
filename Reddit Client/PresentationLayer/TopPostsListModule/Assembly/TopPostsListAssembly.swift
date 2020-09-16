@@ -17,8 +17,8 @@ struct TopPostsListAssembly {
         let router = TopPostsListRouter()
         router.controller = vc
         
-        let redditService = RedditService()
-        vc.model = TopPostsListModel(redditService: redditService)
+        vc.model = TopPostsListModel(redditService: RedditService(),
+                                     postsStorage: PostsStorage())
         vc.router = router
         
         return vc
