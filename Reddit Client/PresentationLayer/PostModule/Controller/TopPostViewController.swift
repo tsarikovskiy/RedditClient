@@ -34,6 +34,20 @@ final class TopPostViewController: UIViewController {
         configureButton()
         configureIndicatorView()
         setupImage()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(deviceOrientationDidChange),
+                                               name: UIDevice.orientationDidChangeNotification,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    @objc private func deviceOrientationDidChange() {
+        activityIndicatorView.center = view.center
     }
     
     private func configureButton() {

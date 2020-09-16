@@ -39,8 +39,23 @@ class TopPostsListViewController: UIViewController {
         configureTableView()
         configurePullToRefresh()
         initialObtainingPosts()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(deviceOrientationDidChange),
+                                               name: UIDevice.orientationDidChangeNotification,
+                                               object: nil)
+
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    @objc private func deviceOrientationDidChange() {
+        activityIndicatorView.center = view.center
+    }
+
     private func configureIndicatorView() {
         activityIndicatorView.center = view.center
         activityIndicatorView.hidesWhenStopped = true
