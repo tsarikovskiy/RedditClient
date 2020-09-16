@@ -21,7 +21,7 @@ class TopPostsListViewController: UIViewController {
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
-
+    var isLoadingNextPosts = false
     
     // MARK: - Properties
     var model: TopPostsListModelInput?
@@ -57,7 +57,7 @@ class TopPostsListViewController: UIViewController {
     }
     
     private func obtainPosts() {
-        model?.obtainTopPosts { [weak self] posts, isSuccess in
+        model?.obtainTopPosts(isInitial: true) { [weak self] posts, isSuccess in
             guard let self = self else {
                 return
             }
@@ -78,12 +78,38 @@ class TopPostsListViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: C.pullToRefreshTitle)
         refreshControl.addTarget(self, action: #selector(performPullToRefreshAction),
                                  for: .valueChanged)
-        tableView.addSubview(refreshControl)
+        tableView.refreshControl = refreshControl
     }
     
     @objc func performPullToRefreshAction() {
         activityIndicatorView.startAnimating()
         obtainPosts()
+    }
+    
+    private func obtainNextPosts() {
+        model?.obtainTopPosts(isInitial: false) { [weak self] posts, isSuccess in
+            
+            guard let self = self else {
+                return
+            }
+            
+            self.isLoadingNextPosts = false
+            self.activityIndicatorView.stopAnimating()
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            if isSuccess {
+                var paths: [IndexPath] = []
+                for (idx, _) in posts.enumerated() {
+                    paths.append(.init(row: self.posts.count + idx, section: 0))
+                }
+                
+                self.posts.append(contentsOf: posts)
+                self.tableView.insertRows(at: paths, with: .automatic)
+            }
+        }
     }
 }
  
@@ -112,5 +138,17 @@ extension TopPostsListViewController: UITableViewDataSource {
 extension TopPostsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         router?.openTopPost(using: posts[indexPath.row].url)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !isLoadingNextPosts && posts.count > 1 else {
+            return
+        }
+        
+        if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height) {
+            isLoadingNextPosts = true
+            activityIndicatorView.startAnimating()
+            obtainNextPosts()
+        }
     }
 }

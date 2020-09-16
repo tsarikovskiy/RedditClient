@@ -9,5 +9,10 @@
 import Foundation
 
 protocol RedditServiceType {
-    func obtainTopPosts(completion: @escaping (Result<[Post], APIError>) -> Void)
+    
+    /// Request for top post
+    /// - Parameters:
+    ///   - isInitialPage: Is load first page
+    ///   - completion: Return post items or error  while loading these items
+    func obtainTopPosts(isInitialPage: Bool, completion: @escaping (Result<[Post], APIError>) -> Void)
 }

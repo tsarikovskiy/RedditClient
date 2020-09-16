@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TopPostsListModelInput: class {
-    func obtainTopPosts(completion: @escaping ([Post], Bool) -> Void)
+    func obtainTopPosts(isInitial: Bool, completion: @escaping ([Post], Bool) -> Void)
 }
 
 protocol TopPostsListRouterInput: class {

@@ -8,25 +8,70 @@
 
 import Foundation
 
-struct RedditService: RedditServiceType {
+final class RedditService {
+
+    // MARK: - Propereties
+    var lastLoadedPostId = ""
     
-    func obtainTopPosts(completion: @escaping (Result<[Post], APIError>) -> Void) {
+}
+
+// MARK: - RedditServiceType
+extension RedditService: RedditServiceType {
+    
+    func obtainTopPosts(isInitialPage: Bool, completion: @escaping (Result<[Post], APIError>) -> Void) {
+        
+        // Create the URL
+        var urlComponents = URLComponents(string: "https://www.reddit.com/top.json")
+        
+        // Add limit items query
+        var queryItems = [URLQueryItem(name: "limit", value: "25")]
+        
+        // Check is loading first page
+        if !isInitialPage {
+            
+            // Did we loaded the previously page
+            if !lastLoadedPostId.isEmpty {
                 
-        guard let url = URL(string: "https://www.reddit.com/top.json") else {
+                // Add pagination query
+                queryItems.append(URLQueryItem(name: "after", value: lastLoadedPostId))
+                
+             }
+            
+        }
+                
+        // Setup query to URL
+        urlComponents?.queryItems = queryItems
+        
+        // Check for created URL
+        guard let url = urlComponents?.url else {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let list = try JSONDecoder().decode(PostsList.self, from: data)
-                    completion(.success(list.posts))
-                } catch {
-                    completion(.failure(.invalidResponse))
-                }
-            } else {
-                completion(.failure(.emptyResponse))
+        // Make request
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data,
+                error == nil else {
+                    completion(.failure(.emptyResponse))
+                    return
             }
+                
+            do {
+                
+                // Map response to models
+                let list = try JSONDecoder().decode(PostsList.self, from: data)
+                
+                // Call the completion
+                completion(.success(list.posts))
+                
+                // Save last loaded post id for pagination
+                self.lastLoadedPostId = list.posts.last?.fullServerID ?? ""
+                
+            } catch {
+                
+                completion(.failure(.invalidResponse))
+                
+            }
+            
         }.resume()
     }
 }

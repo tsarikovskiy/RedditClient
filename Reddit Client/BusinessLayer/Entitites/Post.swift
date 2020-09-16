@@ -10,6 +10,7 @@ import Foundation
 
 struct Post: Identifiable {
     let id: String
+    let fullServerID: String
     let title: String
     let author: String
     let thumbnail: URL
@@ -31,6 +32,7 @@ extension Post: Decodable {
         case created
         case numComments = "num_comments"
         case url
+        case name
     }
     
     init(from decoder: Decoder) throws {
@@ -44,5 +46,6 @@ extension Post: Decodable {
         created = try dataContainer.decode(TimeInterval.self, forKey: .created)
         numberComments = try dataContainer.decode(Int.self, forKey: .numComments)
         url = try dataContainer.decode(URL.self, forKey: .url)
+        fullServerID = try dataContainer.decode(String.self, forKey: .name)
     }
 }

@@ -23,8 +23,8 @@ final class TopPostsListModel {
 // MARK: - TopPostsListModelInput
 extension TopPostsListModel: TopPostsListModelInput {
     
-    func obtainTopPosts(completion: @escaping ([Post], Bool) -> Void) {
-        redditService.obtainTopPosts { result in
+    func obtainTopPosts(isInitial: Bool, completion: @escaping ([Post], Bool) -> Void) {
+        redditService.obtainTopPosts(isInitialPage: isInitial) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(posts):
